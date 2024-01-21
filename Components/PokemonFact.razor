@@ -8,7 +8,7 @@
 else
 {
     <div class="pokemon-fact">
-        <h3>Random Pokemón</h3>
+        <h3>Random Pokémon</h3>
         <img src="@pokemon.Sprites?.FrontDefault" alt="@pokemon.Name" />
         <h4>@(CapitalizeFirstLetter(pokemon.Name ?? "Unknown"))</h4>
         <p>Type: @string.Join(", ", pokemon.Types?.Select(t => t.Type.Name) ?? new List<string>())</p>

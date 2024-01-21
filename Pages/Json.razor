@@ -17,16 +17,27 @@
 }
 else
 {
-    <div class="pokemon-container">
-        @foreach (var pokemon in randomPokemons)
-        {
-            <div class="pokemon">
-                <img src="@pokemon.Sprites.FrontDefault" alt="@pokemon.Name" />
-                <img src="@pokemon.Sprites.BackDefault" alt="@pokemon.Name" />
-                <p>@CapitalizeFirstLetter(pokemon.Name)</p>
-            </div>
-        }
+    <div class="container mt-4">
+        <div class="row">
+            @foreach (var pokemon in randomPokemons)
+            {
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100">
+                        <div class="card-image-container text-center">
+                            <img src="@pokemon.Sprites?.FrontDefault" class="card-img-top p-2"
+                                alt="@CapitalizeFirstLetter(pokemon.Name)">
+                            <img src="@pokemon.Sprites?.BackDefault" class="card-img-top p-2"
+                                alt="@CapitalizeFirstLetter(pokemon.Name)">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@CapitalizeFirstLetter(pokemon.Name)</h5>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
     </div>
+
 }
 
 @code {

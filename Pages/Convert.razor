@@ -7,17 +7,21 @@
 
 <h1>Konvertering</h1>
 
-<h2>Konvertera meter till fot</h2>
-<label for="meter">Meter:</label>
-<input type="number" class="form-control" @bind="meter" />
-<button @onclick="convertMeterToFoot" class="btn btn-primary my-4">Konvertera</button>
-<h3>Antal fot: @feet</h3>
+<div class="p-4 border border-dark rounded mb-4">
+    <h2>Konvertera meter till fot</h2>
+    <label for="meter">Meter:</label>
+    <input type="number" class="form-control" @bind="meter" id="meter" />
+    <p class="pt-4">Antal fot: @feet</p>
+    <button @onclick="convertMeterToFoot" class="btn btn-primary">Konvertera</button>
+</div>
 
-<h2 class="pt-4">Konvertera km/h till miles/hour</h2>
-<label for="kmh">Km/h:</label>
-<input type="number" class="form-control" @bind="kmh" />
-<button @onclick="convertKmhToMph" class="btn btn-primary my-4">Konvertera</button>
-<h3>Miles/h: @mph</h3>
+<div class="p-4 border border-dark rounded">
+    <h2>Konvertera km/h till miles/hour</h2>
+    <label for="kmh">Km/h:</label>
+    <input type="number" class="form-control" @bind="kmh" id="kmh" />
+    <p class="pt-4">Miles/h: @mph</p>
+    <button @onclick="convertKmhToMph" class="btn btn-primary">Konvertera</button>
+</div>
 
 <PokemonFact />
 
