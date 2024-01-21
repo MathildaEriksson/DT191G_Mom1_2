@@ -101,3 +101,22 @@ a, .btn-link {
 code {
     color: #c02d76;
 }
+
+.pokemon-fact {
+    border: 1px solid #000000;
+    border-radius: 0.25rem;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    max-width: 250px;
+}
+
+.pokemon-fact img {
+    max-width: 100px;
+    height: auto;
+}
+
+.pokemon-fact h4 {
+    margin: 10px 0;
+}
+

@@ -13,7 +13,7 @@
 
 @if (randomPokemons == null || !randomPokemons.Any())
 {
-    <p><em>Loading...</em></p>
+    <p><em>Laddar Pokémons...</em></p>
 }
 else
 {
@@ -30,16 +30,16 @@ else
 }
 
 @code {
-    private List<Pokemon> randomPokemons = new List<Pokemon>();
+    private List<Pokemon> randomPokemons = new List<Pokemon>(); //List for Pokemons
     private const int MaxPokemonId = 151; // I only get max id 151 to get the first gen ones :)
-    private const int NumberOfRandomPokemons = 10;
+    private const int NumberOfRandomPokemons = 10; //Number of Pokemons
 
     protected override async Task OnInitializedAsync()
     {
         Random rnd = new Random();
         for (int i = 0; i < NumberOfRandomPokemons; i++)
         {
-            int randomId = rnd.Next(1, MaxPokemonId + 1);
+            int randomId = rnd.Next(1, MaxPokemonId + 1); // +1 to include number 151
             Pokemon pokemon = await Http.GetFromJsonAsync<Pokemon>($"https://pokeapi.co/api/v2/pokemon/{randomId}");
             if (pokemon != null)
             {
@@ -58,7 +58,6 @@ else
         // Capitalize the first letter and concatenate the rest of the string
         return input[0].ToString().ToUpper() + input.Substring(1);
     }
-
 
     public class Pokemon
     {
