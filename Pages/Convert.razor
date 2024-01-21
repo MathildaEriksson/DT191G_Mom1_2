@@ -1,0 +1,43 @@
+﻿@page "/convert"
+
+@* Mathilda Eriksson DT191G *@
+
+<PageTitle>Konvertering</PageTitle>
+
+<h1>Konvertering</h1>
+
+<h2>Konvertera meter till fot</h2>
+<label for="meter">Meter:</label>
+<input type="number" class="form-control" @bind="meter" />
+<button @onclick="convertMeterToFoot" class="btn btn-primary my-4">Konvertera</button>
+<h3>Antal fot: @feet</h3>
+
+<h2 class="pt-4">Konvertera km/h till miles/hour</h2>
+<label for="kmh">Km/h:</label>
+<input type="number" class="form-control" @bind="kmh" />
+<button @onclick="convertKmhToMph" class="btn btn-primary my-4">Konvertera</button>
+<h3>Miles/h: @mph</h3>
+
+@code {
+    private float meter;
+    private float feet;
+    private float kmh;
+    private float mph;
+
+    private void convertMeterToFoot()
+    {
+        // 1 meter is about 3.28084 feet
+        feet = meter * 3.28084f;
+        // Round the result to 2 decimal places
+        feet = (float)Math.Round(feet, 2);
+    }
+
+    private void convertKmhToMph()
+    {
+        // 1 km/h is about 0.621371 miles/h
+        float milesPerHour = kmh * 0.621371f;
+        // Round the result to the nearest whole number
+        mph = (int)Math.Round(milesPerHour);
+
+    }
+}

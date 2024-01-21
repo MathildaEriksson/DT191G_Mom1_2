@@ -1,0 +1,77 @@
+﻿@page "/json"
+@inject HttpClient Http
+@using System.Text.Json.Serialization
+
+@* Mathilda Eriksson DT191G *@
+
+<PageTitle>JSON</PageTitle>
+
+<h1>JSON</h1>
+<p>Här används <a href="https://pokeapi.co/" target="_blank">PokeAPI</a> för att testa HTTPClient för att läsa in data i
+    JSON format.</p>
+<p>10 slumpmässiga Pokémons hämtas och visas här.</p>
+
+@if (randomPokemons == null || !randomPokemons.Any())
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="pokemon-container">
+        @foreach (var pokemon in randomPokemons)
+        {
+            <div class="pokemon">
+                <img src="@pokemon.Sprites.FrontDefault" alt="@pokemon.Name" />
+                <img src="@pokemon.Sprites.BackDefault" alt="@pokemon.Name" />
+                <p>@CapitalizeFirstLetter(pokemon.Name)</p>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private List<Pokemon> randomPokemons = new List<Pokemon>();
+    private const int MaxPokemonId = 151; // I only get max id 151 to get the first gen ones :)
+    private const int NumberOfRandomPokemons = 10;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Random rnd = new Random();
+        for (int i = 0; i < NumberOfRandomPokemons; i++)
+        {
+            int randomId = rnd.Next(1, MaxPokemonId + 1);
+            Pokemon pokemon = await Http.GetFromJsonAsync<Pokemon>($"https://pokeapi.co/api/v2/pokemon/{randomId}");
+            if (pokemon != null)
+            {
+                randomPokemons.Add(pokemon);
+            }
+        }
+    }
+
+    private string CapitalizeFirstLetter(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+        {
+            return input;
+        }
+
+        // Capitalize the first letter and concatenate the rest of the string
+        return input[0].ToString().ToUpper() + input.Substring(1);
+    }
+
+
+    public class Pokemon
+    {
+        public string Name { get; set; }
+        public Sprites Sprites { get; set; }
+    }
+
+    public class Sprites
+    {
+        [JsonPropertyName("front_default")]
+        public string FrontDefault { get; set; }
+
+        [JsonPropertyName("back_default")]
+        public string BackDefault { get; set; }
+    }
+}
