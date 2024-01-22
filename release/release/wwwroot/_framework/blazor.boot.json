@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "DT191G_Mom1_2",
   "resources": {
-    "hash": "sha256-drhtNWPb3aa1TdQ7fQsbotz5wibAHbIlexLXXdBgbOg=",
+    "hash": "sha256-T20gEXgRHj6l0Oq7pIwQ7+6HvjZNX4draJjHDEnuWKo=",
     "jsModuleNative": {
       "dotnet.native.8.0.1.c00wgvco3u.js": "sha256-SGOlISx+3G4kkvpC9Uq3qoPGsnjxGmW61QBev0lyI5U="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "DT191G_Mom1_2.wasm": "sha256-6dK4cpGviTgbrnGXdZt9vUuxcbqoDKQAUdiPVi6Ohu8=",
+      "DT191G_Mom1_2.wasm": "sha256-UJkCn9Yu+sD8AAJeB7k8bzmPJ/ylEOJC5QHcYzN5m5o=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-4fLEVct4SJoqTw4q1iSwt3h2953OM/1NoULGeInqqv0=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-mmo6S4AxiBcnKbs4b+7ObftqPCkIcLGiAv9gICT/5NY=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-d6tN87QrJstiTMcLaUtZ6TWiNHa8A74Suuzx95thRrE=",
