@@ -51,7 +51,7 @@ else
         for (int i = 0; i < NumberOfRandomPokemons; i++)
         {
             int randomId = rnd.Next(1, MaxPokemonId + 1); // +1 to include number 151
-            Pokemon pokemon = await Http.GetFromJsonAsync<Pokemon>($"https://pokeapi.co/api/v2/pokemon/{randomId}");
+            Pokemon? pokemon = await Http.GetFromJsonAsync<Pokemon>($"https://pokeapi.co/api/v2/pokemon/{randomId}");
             if (pokemon != null)
             {
                 randomPokemons.Add(pokemon);
@@ -72,16 +72,16 @@ else
 
     public class Pokemon
     {
-        public string Name { get; set; }
-        public Sprites Sprites { get; set; }
+        public string? Name { get; set; }
+        public Sprites? Sprites { get; set; }
     }
 
     public class Sprites
     {
         [JsonPropertyName("front_default")]
-        public string FrontDefault { get; set; }
+        public string? FrontDefault { get; set; }
 
         [JsonPropertyName("back_default")]
-        public string BackDefault { get; set; }
+        public string? BackDefault { get; set; }
     }
 }

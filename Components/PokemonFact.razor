@@ -11,8 +11,9 @@ else
         <h3>Random Pokémon</h3>
         <img src="@pokemon.Sprites?.FrontDefault" alt="@pokemon.Name" />
         <h4>@(CapitalizeFirstLetter(pokemon.Name ?? "Unknown"))</h4>
-        <p>Type: @string.Join(", ", pokemon.Types?.Select(t => t.Type.Name) ?? new List<string>())</p>
-        <p>Abilities: @string.Join(", ", pokemon.Abilities?.Select(a => a.Ability.Name) ?? new List<string>())</p>
+        <p>Type: @string.Join(", ", pokemon.Types?.Select(t => t.Type?.Name ?? "Unknown") ?? new List<string>())</p>
+        <p>Abilities: @string.Join(", ", pokemon.Abilities?.Select(a => a.Ability?.Name ?? "Unknown") ?? new List<string>())
+        </p>
     </div>
 }
 
@@ -27,7 +28,7 @@ else
         pokemon = await Http.GetFromJsonAsync<Pokemon>($"https://pokeapi.co/api/v2/pokemon/{randomId}");
     }
 
-        private string CapitalizeFirstLetter(string input)
+    private string CapitalizeFirstLetter(string input)
     {
         if (string.IsNullOrEmpty(input))
         {
